@@ -8,12 +8,8 @@ class Application
  
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if @@items.find{|i| i.name == item_name}
+      if item = @@items.find{|i| i.name == item_name}
         resp.write item.price
-    search_term = req.params["ITEM NAME"]
-    if  @@item.include?(search_term)
-      resp.write "#{search_term.price}"
-      resp.status = 200
     else
       resp.write "Item not found"
       resp.status = 400
