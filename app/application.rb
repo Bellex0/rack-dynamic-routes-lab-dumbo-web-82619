@@ -1,6 +1,6 @@
 class Application
   
-  @@items = []
+  @@item = []
  
   def call(env)
     resp = Rack::Response.new
@@ -8,7 +8,7 @@ class Application
  
     if req.path.match(/items/)
     search_term = req.params["ITEM NAME"]
-    if @@items.include?(search_term)
+    if @@item.include?(search_term)
       resp.write "#{search_term.price}"
       resp.status = 200
     else
