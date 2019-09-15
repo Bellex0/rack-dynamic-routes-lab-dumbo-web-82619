@@ -6,7 +6,7 @@ class Application
  
     if req.path.match(/items/)
     search_term = req.params["ITEM NAME"]
-    if 
+    if @@items.include?(search_term)
       resp.write "#{search_term.price}"
     else
       resp.write "Route not found"
