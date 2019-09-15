@@ -8,7 +8,7 @@ class Application
  
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if item =@@items.find{|i| i.name == item_name}
+      if @@items.find{|i| i.name == item_name}
         resp.write item.price
     search_term = req.params["ITEM NAME"]
     if  @@item.include?(search_term)
