@@ -9,6 +9,7 @@ class Application
     if @@items.include?(search_term)
       resp.write "#{search_term.price}"
     else
+      resp.write "Item not found"
       resp.write "Route not found"
       resp.status = 404
     end
